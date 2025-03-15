@@ -1,13 +1,14 @@
 import React from "react";
+import Square from "./Square";
 
-function Board({ board }) {
+function Board({ board, onMove }) {
   return (
     <div className="board">
-      {board.map((value) => (
-        <button className="square">
-            {value}
-        </button>
-      ))}
+        {
+            board.map((value, index) => (
+                <Square key={index} value={value} onClick={() => onMove(index)} />
+            ))
+        }
     </div>
   );
 }
